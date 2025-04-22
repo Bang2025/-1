@@ -1,0 +1,108 @@
+useMemo  快取值
+useCallback 快取函數定義
+
+狀態更新可以放純函數
+ onClick={() => {
+          setCount((s) => s + 1)
+        }}
+
+深拷貝------------------
+深拷貝可用 JSON.parse +JSON.stringify 的方式。就是轉成JSON之後再轉回來
+const of = JSON.parse(JSON.stringify(oa));
+
+ structuredClone(要深拷貝的對象)
+ ----------------------------------
+
+  const [count, setCount] = useState({
+    name: 'Joe',
+    porfile: {
+      phone: '123456789',
+      address: {
+        city: '高雄市',
+      },
+    },
+  })
+
+  const imm = produce(count, (draft) => {
+    ;(draft.name = '小明'),
+      (draft.porfile.phone = '0933121212'),
+      (draft.porfile.address.city = '花蓮市')
+  })
+
+產生不重複Key值得方法
+  --------------
+   // 使用uuid
+          const newId = self.crypto.randomUUID()
+          const newObj = { id: newId, text: 'xxx' }
+
+    //  用時間來產生ID
+          const newId2 = Date.now()
+
+    //   仿照資料表的自動遞增ID的方式  。先提取所有的ID為一個陣列  [1,2,3,4,5]
+          const ids = data.map((v) => v.id)
+          //   新的ID為最大值+1 ，如果陣列當中沒有資料時則從1開始
+          const newId3 = ids.length > 0 ? Math.max(...ids) + 1 : 1
+
+
+這兩個就是新增的資料一個插前面，一個插後面
+          const nextData2 = [...data, newObj4]
+          const nextData2 = [newObj4,...data]
+
+
+splice黏接
+會直接更動到陣列本身，所以需要複製一份出來之後再更動
+需要告訴index值
+刪除公式為：array.splice(deleteIndex , 1)
+
+ onClick={() => {
+          // 步驟一 先找到要刪除的物件的索引值
+          const foundIndex = data.findIndex((v) => v.id === 4)
+          //   步驟二 判斷是否有找到
+          if (foundIndex !== -1) {
+            // 步驟2-1 深拷貝(或是看作用的階級決定)
+            const nextData6 = [...data]
+            // 步驟2-2 套用刪除的公式
+            nextData6.splice(foundIndex, 1)
+            // 步驟2-3 設定到狀態上
+            setData(nextData6)
+          }
+        }}
+
+CRUD的 U(更改)
+const nextData7 = data.map((v, i) => {
+            // 步驟2  比對出ID為3的是誰
+            if (v.id === 3) {
+              return {
+                // 如果比對出ID為3的時候，將文字替會成cccc
+                ...v,
+                text: 'cccc',
+              }
+            } else {
+              // ID不是3的話回傳原本的物件
+              return v
+            }
+          })
+也可以使用三元運算的方式縮減成下面一行
+setData(data.map((v) => (v.id === 3 ? {...v, text: 'cccc'} : v)))
+
+
+ //splice黏接
+          //插入公式為：array.splice(deleteIndex + 1 , 0 , insertValue)
+
+          // 步驟一 先找到要插入在後面的成員的索引值
+          const foundIndex2 = data.findIndex((v) => v.id === 2)
+          //   步驟二 判斷是否有找到
+          if (foundIndex2 !== -1) {
+            // 步驟2-1 深拷貝(或是看作用的階級決定)
+            const nextData8 = [...data]
+            // 步驟2-2 套用刪除的公式
+            nextData8.splice(foundIndex2 + 1, 0, { id: 5, text: 'bbb' })
+            // 步驟2-3 設定到狀態上
+            setData(nextData8)
+          }
+        }}
+
+
+ // slice(分割，切片)
+          // slice 沒有副作用，不會更動到原陣列
+          //   公式為：array.slice(startIndex , endIndex)
