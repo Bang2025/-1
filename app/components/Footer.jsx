@@ -22,7 +22,7 @@ const Footer = () => {
           </div>
         </div>
         <div className={styles.rightSection}>
-          <Link href="/contact">
+          <Link href="/faq">
             <div className={styles.faqButton}>常見問題</div>
           </Link>
           <div className={styles.socialIcons}>
