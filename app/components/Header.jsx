@@ -15,7 +15,7 @@ const Header = () => {
             alt="Logo"
           />
           <div className={styles.navBtnGroup}>
-            <Link href="/recipes-v2">
+            <Link href="/recipes-landing">
               <div className={styles.navBtn}>美味食譜</div>
             </Link>
             <div className={styles.navBtn}>食材商城</div>
