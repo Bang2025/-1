@@ -5,6 +5,8 @@ import Providers from './providers'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import './styles/globals.css'
+// import './builder/builder-register'
+import './builder/builder-register'
 
 export const metadata = {
   title: '美味食譜 - 您的烹飪好夥伴',

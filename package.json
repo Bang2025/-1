@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@builder.io/react": "^8.0.13",
     "immer": "^10.1.1",
     "mysql2": "^3.14.0",
     "next": "15.2.4",
