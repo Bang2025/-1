@@ -266,7 +266,7 @@ export default function RecipeListPage() {
           </div>
         </div>
 
-        {/* Recipe Cards Section */}
+        {/* Recipe Cards Section 列表頁的食物卡片區塊 */}
         <div className={styles.recipeSection}>
           {isLoading ? (
             <div className={styles.loading}>載入中...</div>
@@ -378,7 +378,7 @@ function RecipeCard({
   return (
     <div className={styles.recipeCard}>
       <div className={styles.recipeImageContainer}>
-        <img src={image} className={styles.recipeImage} alt={title} />
+        <img src={`/${image}`} className={styles.recipeImage} alt={title} />
       </div>
       <div className={styles.recipeContent}>
         <h3 className={styles.recipeTitle}>{title}</h3>
