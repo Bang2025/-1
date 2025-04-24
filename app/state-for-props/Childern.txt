@@ -1,20 +1,2 @@
-你可以根據不同的條件來決定是否渲染 children，或在 children 內部添加動態內容：
-
-js
-複製
-編輯
-// Parent.js
-function Parent() {
-  const showContent = true;
-
-  return (
-    <Child>
-      {showContent ? <p>This content is visible!</p> : <p>No content available.</p>}
-    </Child>
-  );
-}
-
-// Child.js
-function Child({ children }) {
-  return <div>{children}</div>;
-}
+本資料夾的內容只是加減示範Childern屬性的功能
+不熟該屬性的可以加減看看

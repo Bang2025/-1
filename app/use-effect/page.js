@@ -1,3 +1,6 @@
+// 本資料夾只是拿來示範 useEffect 的用法
+// 如果對useEffect不熟的可以加減參考
+// useEffect簡單來說就是當改變了某個狀態時，就會啟動裡面的函數
 'use client'
 import React, { useState, useEffect } from 'react'
 
